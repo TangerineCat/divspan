@@ -1,9 +1,46 @@
 .card-visual {
+  a {
+    color: #8be9fd;
+  }
+
   input[type='checkbox'],
   input[type='radio'] {
     cursor: pointer;
     height: 2rem;
     width: 2rem;
+  }
+
+  .miniForm {
+    input[type='checkbox'],
+    input[type='radio'] {
+      height: auto;
+      width: auto;
+    }
+  }
+}
+
+.miniForm {
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.4rem;
+  text-align: left;
+
+  input[type='text'] {
+    width: 5rem;
+  }
+
+  label {
+    align-items: center;
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  label:first-child {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
@@ -35,5 +72,122 @@
         width: 65%;
       }
     }
+
   }
+}
+
+.miniContainer {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  display: flex;
+  gap: 0.35rem;
+  justify-content: center;
+  padding: 0.4rem;
+  width: 4rem;
+
+  .miniContainer-box {
+    align-items: center;
+    border: 1px solid currentColor;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: center;
+    min-height: 1.8rem;
+    min-width: 1rem;
+    padding: 0.2rem;
+  }
+}
+
+.miniList {
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.4rem;
+  width: 5.5rem;
+
+  .miniList-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0 0.25rem;
+  }
+
+  .miniList-item {
+    align-items: center;
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .miniList-marker {
+    font-size: 0.6rem;
+    min-width: 0.75rem;
+  }
+
+  .miniList-line {
+    border-bottom: 1px solid currentColor;
+    flex: 1;
+    height: 0.3rem;
+  }
+}
+
+.miniLinebreak {
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  font-size: 0.65rem;
+  line-height: 1rem;
+  overflow: hidden;
+  padding: 0.4rem;
+  text-align: left;
+  white-space: nowrap;
+  width: 5.5rem;
+}
+
+.miniDialog {
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  width: 7rem;
+
+  .miniDialog-line {
+    border-bottom: 1px solid currentColor;
+    height: 0.4rem;
+    width: 100%;
+  }
+
+  .miniDialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .miniDialog-button {
+    border: 1px solid currentColor;
+    border-radius: 0.2rem;
+    font-size: 0.6rem;
+    padding: 0.15rem 0.4rem;
+  }
+}
+
+.marqueeVisual {
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  width: 12rem;
+}
+
+.marqueeContainer {
+  position: relative;
+  left: 4rem;
+  width: 7.6rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.miniMarquee {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }

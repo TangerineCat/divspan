@@ -22,12 +22,9 @@ body {
   }
 }
 
-.card-gallery {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  justify-items: center;
-  margin-top: 2rem;
-  max-width: 68rem;
-  width: 100%;
+@media print {
+  :root,
+  body {
+    background: #fff;
+  }
 }

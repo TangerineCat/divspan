@@ -111,14 +111,15 @@ function SpanCard({ config }: CardProps) {
       </div>
       <div className="card-suit">
 
-        {config.useClosingTag && (
+        {config.useClosingTag ? (
           <>
             <span className="card-tag-punctuation">&lt;/</span>
             <span className="card-tag">{config.name}</span>
-
+            <span className="card-tag-punctuation">&gt;</span>
           </>
+        ) : (
+          <span className="card-tag-punctuation">/&gt;</span>
         )}
-        <span className="card-tag-punctuation">&gt;</span>
       </div>
       {config.flavorText && (
         <div className="card-comment">
@@ -185,14 +186,9 @@ function ScriptCard({ config }: CardProps) {
         <span className="card-tag-punctuation">&gt;</span>
       </div>
       <div className="card-center">
-        <div>
-          {config.visual && (
-            <div className="card-visual">{config.visual}</div>
-          )}
+        <div className="card-description">
+          <Description parts={config.description} />
         </div>
-      </div>
-      <div className="card-description">
-        <Description parts={config.description} />
       </div>
       <div className="card-suit">
         <span className="card-tag-punctuation">&lt;/</span>
