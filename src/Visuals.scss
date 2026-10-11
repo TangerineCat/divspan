@@ -1,0 +1,39 @@
+.card-visual {
+  input[type='checkbox'],
+  input[type='radio'] {
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+.miniCard {
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  width: 4rem;
+
+  .miniCard-image {
+    border: 1px solid currentColor;
+    border-radius: 0.2rem;
+    height: 2.5rem;
+  }
+
+  .miniCard-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    span {
+      border-bottom: 1px solid currentColor;
+      height: 0.2rem;
+
+      &:last-child {
+        width: 65%;
+      }
+    }
+  }
+}

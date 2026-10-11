@@ -1,0 +1,33 @@
+:root {
+  color: #282c34;
+  background: #f5f5f5;
+  font-family: ui-monospace, Consolas, 'Courier New', monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  button {
+    font-family: inherit;
+  }
+}
+
+.card-gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  justify-items: center;
+  margin-top: 2rem;
+  max-width: 68rem;
+  width: 100%;
+}
