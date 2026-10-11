@@ -30,6 +30,14 @@ function Description({ parts }: { parts: DescriptionContent[] }) {
       return part
     }
 
+    if (typeof part === 'number') {
+      return (
+        <span className="card-number" key={index}>
+          {part}
+        </span>
+      )
+    }
+
     let className: string | undefined
 
     switch (part.type) {
@@ -38,6 +46,12 @@ function Description({ parts }: { parts: DescriptionContent[] }) {
         break
       case DescriptionType.TAG:
         className = 'card-tag'
+        break
+      case DescriptionType.KEYWORD:
+        className = 'card-keyword'
+        break
+      case DescriptionType.SCRIPT:
+        className = 'card-script-tag'
         break
       default:
         break

@@ -42,6 +42,22 @@
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .miniForm-placeholder,
+  .miniForm-line {
+    border-bottom: 1px solid currentColor;
+    display: block;
+    flex: 1;
+    min-height: 0.25rem;
+  }
+
+  .miniForm-placeholder {
+    width: 4rem;
+  }
+
+  .miniForm-line {
+    width: 2.5rem;
+  }
 }
 
 .miniCard {
@@ -73,6 +89,339 @@
       }
     }
 
+  }
+}
+
+.miniArticle {
+  border: 1px solid currentColor;
+  border-radius: 0.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.55rem;
+  width: 5rem;
+
+  .miniArticle-line {
+    border-bottom: 1px solid currentColor;
+    height: 0.25rem;
+    width: 100%;
+  }
+
+  .miniArticle-line-first {
+    margin-left: 0.55rem;
+    width: calc(100% - 0.55rem);
+  }
+
+  .miniArticle-line-short {
+    width: 65%;
+  }
+}
+
+.miniAccordion {
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  padding: 0.3rem;
+  width: 7.5rem;
+
+  .miniAccordion-row {
+    align-items: center;
+    border-bottom: 1px solid currentColor;
+    display: flex;
+    justify-content: space-between;
+    min-height: 1.1rem;
+    padding: 0.25rem 0.35rem;
+
+    > span:first-child {
+      border-bottom: 1px solid currentColor;
+      height: 0.25rem;
+      width: 60%;
+    }
+  }
+
+  .miniAccordion-toggle {
+    border-bottom: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    height: 0.3rem;
+    transform: rotate(45deg);
+    width: 0.3rem;
+  }
+
+  .miniAccordion-row-open .miniAccordion-toggle {
+    transform: rotate(225deg);
+  }
+
+  .miniAccordion-content {
+    border-bottom: 1px solid currentColor;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.45rem 0.55rem;
+
+    span {
+      border-bottom: 1px solid currentColor;
+      height: 0.25rem;
+      width: 100%;
+
+      &:last-child {
+        width: 70%;
+      }
+    }
+  }
+}
+
+.miniTooltip {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 6rem;
+
+  .miniTooltip-bubble {
+    align-items: center;
+    border: 1px solid currentColor;
+    border-radius: 0.25rem;
+    display: flex;
+    height: 1.3rem;
+    justify-content: center;
+    padding: 0.25rem;
+    width: 100%;
+
+    span {
+      border-bottom: 1px solid currentColor;
+      height: 0.25rem;
+      width: 70%;
+    }
+  }
+
+  .miniTooltip-pointer {
+    border-bottom: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    height: 0.4rem;
+    margin-top: -0.25rem;
+    transform: rotate(45deg);
+    width: 0.4rem;
+  }
+
+  .miniTooltip-anchor {
+    height: 0.25rem;
+    margin-top: 0.3rem;
+    width: 3rem;
+  }
+}
+
+.miniBlockquote {
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  padding: 0.4rem 0.55rem;
+  width: 6rem;
+
+  .miniBlockquote-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    position: relative;
+  }
+
+  .miniBlockquote-quote {
+    font-size: 1.4rem;
+    line-height: 0.4rem;
+  }
+
+  .miniBlockquote-quote.open {
+    left: 0;
+    position: absolute;
+    top: .5rem
+  }
+  .miniBlockquote-quote.close {
+    right: 0;
+    position: absolute;
+    bottom: -.5rem;
+  }
+
+  .miniBlockquote-line {
+    border-bottom: 1px solid currentColor;
+    display: block;
+    height: 0.4rem;
+    width: 100%;
+  }
+
+  .miniBlockquote-line.first {
+    margin-left: 0.85rem;
+    width: calc(100% - 0.85rem);
+  }
+
+  .miniBlockquote-line.short {
+    width: 80%;
+  }
+}
+
+.miniBadge {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+
+  .miniBadge-warning {
+    align-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    font-size: 0.65rem;
+    font-weight: bold;
+    height: 0.85rem;
+    justify-content: center;
+    line-height: 1;
+    width: 0.85rem;
+  }
+
+  .miniBadge-text {
+    border-bottom: 1px solid currentColor;
+    height: 0.3rem;
+    width: 2.5rem;
+  }
+}
+
+.miniBannerAd {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.35rem;
+  width: 10rem;
+
+  .miniBannerAd-image {
+    border: 1px solid currentColor;
+    border-radius: 0.15rem;
+    flex: 0 0 6rem;
+    height: 2.5rem;
+  }
+
+  .miniBannerAd-copy {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 2rem;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .miniBannerAd-heading,
+  .miniBannerAd-line {
+    border-bottom: 1px solid currentColor;
+    height: 0.15rem;
+    width: 100%;
+  }
+
+  .miniBannerAd-heading {
+    border-bottom-width: 1.5px;
+    width: 85%;
+  }
+
+  .miniBannerAd-button {
+    border: 1px solid currentColor;
+    border-radius: 0.2rem;
+    height: 0.4rem;
+    margin-top: 0.1rem;
+    width: 1.5rem;
+  }
+}
+
+.miniSpinner {
+  border: 0.25rem solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.miniHero {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding: 0.5rem;
+  width: 10rem;
+
+  .miniHero-copy {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .miniHero-heading {
+    border-bottom: 2px solid currentColor;
+    height: 0.4rem;
+    width: 80%;
+  }
+
+  .miniHero-line {
+    border-bottom: 1px solid currentColor;
+    height: 0.25rem;
+    width: 100%;
+  }
+
+  .miniHero-line-short {
+    width: 70%;
+  }
+
+  .miniHero-button {
+    border: 1px solid currentColor;
+    border-radius: 0.2rem;
+    height: 0.55rem;
+    margin-top: 0.15rem;
+    width: 2rem;
+  }
+
+  .miniHero-image {
+    border: 1px solid currentColor;
+    border-radius: 0.2rem;
+    flex: 0 0 3rem;
+    height: 3rem;
+  }
+}
+
+.miniSidebar {
+  border: 1px solid currentColor;
+  border-radius: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  height: 6rem;
+  overflow: hidden;
+  width: 6rem;
+
+  .miniSidebar-header {
+    border-bottom: 1px solid currentColor;
+    flex: 0 0 0.8rem;
+  }
+
+  .miniSidebar-layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .miniSidebar-navigation {
+    border-right: 1px solid currentColor;
+    display: flex;
+    flex: 0 0 1.6rem;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.4rem 0.25rem;
+
+    span {
+      border-bottom: 1px solid currentColor;
+      height: 0.2rem;
+      width: 100%;
+    }
+  }
+
+  .miniSidebar-content {
+    flex: 1;
   }
 }
 
@@ -172,6 +521,51 @@
   }
 }
 
+.miniIframe {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 8rem;
+
+  .miniIframe-browser {
+    border: 1px solid currentColor;
+    border-radius: 0.35rem;
+    overflow: hidden;
+  }
+
+  .miniIframe-toolbar {
+    align-items: center;
+    border-bottom: 1px solid currentColor;
+    display: flex;
+    gap: 0.2rem;
+    padding: 0.25rem 0.35rem;
+
+    span {
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      height: 0.25rem;
+      width: 0.25rem;
+    }
+  }
+
+  .miniIframe-content {
+    padding: 0.35rem;
+  }
+
+  .miniIframe-frame {
+    align-items: center;
+    border: 1px dashed currentColor;
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+
+    span {
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+  }
+}
+
 .marqueeVisual {
   border: 1px solid currentColor;
   border-radius: 0.35rem;
@@ -190,4 +584,250 @@
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
+}
+
+.miniSearchbar {
+  align-items: stretch;
+  display: flex;
+  gap: 0.35rem;
+  width: 12rem;
+
+  .miniSearchbar-input,
+  .miniSearchbar-button {
+    align-items: center;
+    border: 1px solid currentColor;
+    display: flex;
+    justify-content: center;
+  }
+
+  .miniSearchbar-input {
+    justify-content: flex-start;
+    flex: 1;
+    min-width: 0;
+    padding: 0 0.45rem;
+  }
+
+  .miniSearchbar-icon {
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    height: 0.55rem;
+    position: relative;
+    width: 0.55rem;
+
+    &::after {
+      background: currentColor;
+      content: '';
+      height: 0.35rem;
+      left: 0.42rem;
+      position: absolute;
+      top: 0.4rem;
+      transform: rotate(-45deg);
+      transform-origin: top left;
+      width: 1px;
+    }
+  }
+
+  .miniSearchbar-button {
+    border-radius: 0.4rem;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.4rem;
+  }
+}
+
+.miniNavbar {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.4rem;
+  width: 12rem;
+
+  .miniNavbar-logo {
+    flex: 0 0 auto;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .miniSearchbar {
+    flex: 0 1 8rem;
+    min-width: 0;
+    width: auto;
+  }
+
+  .miniNavbar-portrait {
+    align-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    flex: 0 0 1.4rem;
+    flex-direction: column;
+    height: 1.4rem;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding-top: 0.2rem;
+
+    span:first-child {
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      height: 0.35rem;
+      width: 0.35rem;
+    }
+
+    span:last-child {
+      border: 1px solid currentColor;
+      border-bottom: 0;
+      border-radius: 50% 50% 0 0;
+      height: 0.35rem;
+      margin-top: 0.1rem;
+      width: 0.7rem;
+    }
+  }
+}
+
+.miniVideoPlayer {
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.35rem;
+  width: 8rem;
+
+  .miniVideoPlayer-controls {
+    align-items: center;
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  .miniVideoPlayer-play-control {
+    border-bottom: 0.25rem solid transparent;
+    border-left: 0.4rem solid currentColor;
+    border-top: 0.25rem solid transparent;
+    flex: 0 0 auto;
+    height: 0;
+    width: 0;
+  }
+
+  .miniVideoPlayer-progress {
+    border: 1px solid currentColor;
+    border-radius: 1rem;
+    flex: 1;
+    height: 0.3rem;
+    overflow: hidden;
+
+    span {
+      background: currentColor;
+      display: block;
+      height: 100%;
+      width: 35%;
+    }
+  }
+}
+
+.miniVideoPlayer-screen {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 0.2rem;
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+}
+
+.miniVideoPlayer-play {
+  border-bottom: 0.45rem solid transparent;
+  border-left: 0.7rem solid currentColor;
+  border-top: 0.45rem solid transparent;
+  height: 0;
+  margin-left: 0.15rem;
+  width: 0;
+}
+
+.miniReelContainer {
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  .miniVideoPlayer {
+    width: 8rem;
+  }
+}
+
+.miniCarousel {
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  width: 11rem;
+
+  .miniCarousel-stage {
+    align-items: center;
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .miniVideoPlayer-screen {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .miniCarousel-arrow {
+    height: 0;
+    width: 0;
+  }
+
+  .miniCarousel-arrow-left {
+    border-bottom: 0.4rem solid transparent;
+    border-right: 0.5rem solid currentColor;
+    border-top: 0.4rem solid transparent;
+  }
+
+  .miniCarousel-arrow-right {
+    border-bottom: 0.4rem solid transparent;
+    border-left: 0.5rem solid currentColor;
+    border-top: 0.4rem solid transparent;
+  }
+
+  .miniCarousel-dots {
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+    margin-top: 0.35rem;
+
+    span {
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      height: 0.3rem;
+      width: 0.3rem;
+
+      &:first-child {
+        background: currentColor;
+      }
+    }
+  }
+}
+
+.miniTable {
+  border: 1px solid currentColor;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  width: 8rem;
+
+  th,
+  td {
+    border: 1px solid currentColor;
+    height: 1.1rem;
+    padding: 0.2rem;
+    width: 33.333%;
+  }
+
+  th {
+    height: 1.3rem;
+    border-bottom: 3px solid currentColor;
+  }
+
+  th:first-child,
+  td:first-child {
+    border-right: 3px solid currentColor;
+  }
 }

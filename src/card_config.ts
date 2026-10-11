@@ -10,6 +10,8 @@ export enum CardType {
 export enum DescriptionType {
     NUMBER = "number",
     TAG = "tag",
+    KEYWORD = "keyword",
+    SCRIPT = "script",
 }
 
 export interface DescriptionPart {
@@ -17,7 +19,7 @@ export interface DescriptionPart {
     type: DescriptionType;
 }
 
-export type DescriptionContent = string | DescriptionPart;
+export type DescriptionContent = string | number | DescriptionPart;
 
 export interface CardConfig {
     type: CardType;

@@ -1,27 +1,42 @@
 import { CardType, DescriptionType } from './card_config'
 import type { CardConfig } from './card_config'
-import { LinebreakVisual, MarqueeVisual } from './Visuals'
+import {
+  LinebreakVisual,
+  MarqueeVisual,
+  MiniIframeVisual,
+  VideoPlayerVisual,
+} from './Visuals'
 
 export const spans: CardConfig[] = [
   {
     type: CardType.SPAN,
     name: 'strong',
     description: [
-      'Divs with a ',
-      { text: 'strong', type: DescriptionType.TAG },
-      ' cannot be affected by scripts.',
+      'When you add this card to a ',
+      { text: 'div', type: DescriptionType.TAG },
+      ', you may draw ',
+      1,
+      ' additional ',
+      { text: 'span', type: DescriptionType.TAG },
+      '. You ',
+      { text: 'must', type: DescriptionType.KEYWORD },
+      ' place this into one of your open ',
+      { text: 'divs', type: DescriptionType.TAG },
+      ' immediately.',
     ],
-    flavorText: 'Back in my day we used to call this bold!',
+    flavorText: 'Be brave. Be BOLD!',
     useClosingTag: true,
-    visual: <strong>NONE SHALL PASS!!!</strong>,
+    visual: <strong>YOLO!!!</strong>,
   },
   {
     type: CardType.SPAN,
     name: 'em',
     visual: <em>As per my last email</em>,
     description: [
-      'After adding this card to a div, you may add ',
-      { text: '1', type: DescriptionType.NUMBER },
+      'After adding this card to a ',
+      { text: 'div', type: DescriptionType.TAG },
+      ', you may play ',
+      1,
       ' additional ',
       { text: 'span', type: DescriptionType.TAG },
       ' this turn.',
@@ -33,11 +48,16 @@ export const spans: CardConfig[] = [
     type: CardType.SPAN,
     name: 'code',
     description: [
-      'After adding this card to a div, you may add ',
-      { text: '1', type: DescriptionType.NUMBER },
-      ' additional ',
-      { text: 'span', type: DescriptionType.TAG },
-      ' this turn.',
+      'After adding this card to a ',
+      { text: 'div', type: DescriptionType.TAG },
+      ', you may remove ',
+      1,
+      { text: ' span', type: DescriptionType.TAG },
+      ' from ',
+      1,
+      ' of your open ',
+      { text: 'divs', type: DescriptionType.TAG },
+      '.',
     ],
     flavorText: 'Only hackermans use this tag!',
     useClosingTag: true,
@@ -47,8 +67,10 @@ export const spans: CardConfig[] = [
     type: CardType.SPAN,
     name: 'a',
     description: [
-      'After adding this tag to a div, you may draw ',
-      { text: '1', type: DescriptionType.NUMBER },
+      'After adding this tag to a ',
+      { text: 'div', type: DescriptionType.TAG },
+      ', draw ',
+      1,
       ' additional ',
       { text: 'span', type: DescriptionType.TAG },
       '.'],
@@ -87,7 +109,7 @@ export const spans: CardConfig[] = [
     description: ['When you add this card to a ',
       { text: 'div', type: DescriptionType.TAG },
       ' the next player skips their turn.'],
-    flavorText: 'You\'re completely out of line!',
+    flavorText: 'You\'re out of line!',
     useClosingTag: false,
   },
   {
@@ -96,11 +118,32 @@ export const spans: CardConfig[] = [
     visual: <MarqueeVisual />,
     description: [
       'When a div contains this card scores, it scores ',
-      { text: '1', type: DescriptionType.NUMBER },
+      1,
       ' additional point.',
     ],
-    flavorText: 'Weeeeeeeeeeeeeeeee!.',
+    flavorText: 'Weeeeeeeeeeeeeeeee!',
     useClosingTag: true,
+  },
+  {
+    type: CardType.SPAN,
+    name: 'video',
+    visual: <VideoPlayerVisual />,
+    description: [],
+    flavorText: 'Never gonna give you up. Never gonna let you down.',
+    useClosingTag: true,
+  },
+  {
+    type: CardType.SPAN,
+    name: 'iframe',
+    visual: <MiniIframeVisual />,
+    description: [
+      'A div that contains an ',
+      {text: 'iframe', type: DescriptionType.TAG},
+      ' cannot be affected by any ',
+      {text: 'scripts', type: DescriptionType.SCRIPT},
+      '.',
+    ],
+    flavorText: 'Put some website in your website.'
   },
 ]
 

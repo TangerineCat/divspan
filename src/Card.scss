@@ -5,6 +5,7 @@
   --attr: #50fa7b;
   --string: #f1fa8c;
   --number: #bd93f9;
+  --keyword: #c792ea;
   --script-tag: #ff79c6;
   --punct: #f8f8f2;
   --tag-punct: #f8f8f2;
@@ -32,6 +33,7 @@
   --attr: #50fa7b;
   --string: #f1fa8c;
   --number: #bd93f9;
+  --keyword: #ffb86c;
   --script-tag: #ff79c6;
   --punct: #f8f8f2;
   --tag-punct: #f8f8f2;
@@ -46,6 +48,7 @@
   --attr: #c5e478;
   --string: #ecc48d;
   --number: #f78c6c;
+  --keyword: #c792ea;
   --script-tag: #fad000;
   --punct: #c792ea;
   --tag-punct: #7fdbca;
@@ -63,6 +66,7 @@
     --attr: #048926;
     --string: #737d05;
     --number: #934ef5;
+    --keyword: #b75f00;
     --script-tag: #e50084;
     --punct: #282a36;
     --tag-punct: #282a36;
@@ -77,6 +81,7 @@
     --attr: #4876d6;
     --string: #c96765;
     --number: #aa0982;
+    --keyword: #994cc3;
     --script-tag: #994cc3;
     --punct: #403f53;
     --tag-punct: #994cc3;
@@ -99,6 +104,7 @@
     --attr: #048926;
     --string: #737d05;
     --number: #934ef5;
+    --keyword: #b75f00;
     --script-tag: #e50084;
     --punct: #282a36;
     --tag-punct: #282a36;
@@ -113,6 +119,7 @@
     --attr: #4876d6;
     --string: #c96765;
     --number: #aa0982;
+    --keyword: #994cc3;
     --script-tag: #994cc3;
     --punct: #403f53;
     --tag-punct: #994cc3;
@@ -151,6 +158,10 @@
     gap: 0.5rem;
     width: 100%;
   }
+
+  > .card-description {
+    display: block;
+  }
 }
 
 .card-description {
@@ -160,7 +171,7 @@
   text-align: center;
   width: 100%;
 
-  .card-tag,.card-number {
+  .card-tag,.card-number,.card-keyword,.card-script-tag {
     font-weight: bold;
   }
 }
@@ -207,6 +218,10 @@
 
 .card-number {
   color: var(--number);
+}
+
+.card-keyword {
+  color: var(--keyword);
 }
 
 .card-script-tag {
