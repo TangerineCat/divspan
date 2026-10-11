@@ -1,6 +1,8 @@
 /// <reference types="vite/client" />
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { toBlob } from 'html-to-image'
+import JSZip from 'jszip'
 import Card from './Card'
 import type { CardConfig } from './card_config'
 import './App.scss'
@@ -16,6 +18,60 @@ const cards: CardConfig[] = [
 
 function App() {
   const [lightMode, setLightMode] = useState(false)
+  const [isExporting, setIsExporting] = useState(false)
+  const [exportError, setExportError] = useState<string | null>(null)
+  const galleryRef = useRef<HTMLDivElement>(null)
+
+  async function exportCards() {
+    setIsExporting(true)
+    setExportError(null)
+
+    try {
+      const gallery = galleryRef.current
+      if (!gallery) {
+        throw new Error('The card gallery is not available.')
+      }
+
+      const cardElements = Array.from(
+        gallery.querySelectorAll<HTMLElement>(':scope > .card'),
+      )
+      if (cardElements.length !== cards.length) {
+        throw new Error('Could not find every card in the gallery.')
+      }
+
+      const zip = new JSZip()
+      for (const [index, cardElement] of cardElements.entries()) {
+        const image = await toBlob(cardElement, { pixelRatio: 2 })
+        if (!image) {
+          throw new Error(`Could not render card ${index + 1} as an image.`)
+        }
+
+        const config = cards[index]
+        const cardName = `${config.type}-${config.name}`.replace(
+          /[^\w-]+/g,
+          '-',
+        )
+        const sequence = String(index + 1).padStart(2, '0')
+        zip.file(`${sequence}-${cardName}.png`, image)
+      }
+
+      const archive = await zip.generateAsync({ type: 'blob' })
+      const downloadUrl = URL.createObjectURL(archive)
+      const downloadLink = document.createElement('a')
+      downloadLink.href = downloadUrl
+      downloadLink.download = 'theme-cards.zip'
+      downloadLink.click()
+      URL.revokeObjectURL(downloadUrl)
+    } catch (error) {
+      setExportError(
+        error instanceof Error
+          ? `Could not export cards: ${error.message}`
+          : 'Could not export cards due to an unexpected error.',
+      )
+    } finally {
+      setIsExporting(false)
+    }
+  }
 
   return (
     <main className={`app${lightMode ? ' light-mode' : ''}`}>
@@ -29,10 +85,30 @@ function App() {
         >
           {lightMode ? 'Use dark mode' : 'Use light mode'}
         </button>
+        <button
+          className="export-cards-button"
+          disabled={isExporting}
+          onClick={exportCards}
+          type="button"
+        >
+          {isExporting ? 'Exporting...' : 'Export cards'}
+        </button>
       </header>
-      <div className="card-gallery" aria-label="Theme card gallery">
-        {cards.map((config) => (
-          <Card config={config} key={`${config.type}-${config.name}`} />
+      {exportError && (
+        <p className="export-error" role="alert">
+          {exportError}
+        </p>
+      )}
+      <div
+        className="card-gallery"
+        aria-label="Theme card gallery"
+        ref={galleryRef}
+      >
+        {cards.map((config, index) => (
+          <Card
+            config={config}
+            key={`${config.type}-${config.name}-${index}`}
+          />
         ))}
       </div>
     </main>
