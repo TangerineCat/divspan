@@ -263,7 +263,7 @@ export const divs: CardConfig[] = [
     visual: <BadgeVisual />,
     description: [
       'This div scores ',
-      2,
+      1,
       ' points if it contains a text ',
       { text: 'span', type: DescriptionType.TAG},
       '.',
@@ -432,4 +432,35 @@ export const scripts: CardConfig[] = [
     ],
     flavorText: 'It\'s a "present"',
   },
-]
+  {
+    type: CardType.SCRIPT,
+    name: 'commit',
+    description: [
+      'Add up to ',
+      3,
+      { text: ' spans', type: DescriptionType.TAG },
+      'to a ',
+      { text: ' div', type: DescriptionType.TAG },
+      ' from your hand, then draw the top card of the ',
+      { text: 'div', type: DescriptionType.TAG},
+      ' deck face down, and close that ',
+      { text: 'div', type: DescriptionType.TAG},
+      '.'
+    ],
+    flavorText: 'Commit to the bit!',
+  },
+  {
+    type: CardType.SCRIPT,
+    name: 'upload',
+    description: [
+      'Reveal cards from the ',
+      { text: 'div', type: DescriptionType.TAG},
+      ' deck equal to the ',
+      {text: 'number of players', type: DescriptionType.NUMBER},
+      '. In clockwise order, starting with yourself, each player must choose ',
+      1,
+      ' of the remaining cards and add it to their hand',
+    ],
+    flavorText: 'You get a card! You get a card!',
+  },
+];

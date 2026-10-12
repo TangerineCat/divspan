@@ -29,6 +29,13 @@ const example = <Card config={config} />
 
 Cards select their theme by type: `div` and `script` use Night Owl; `span` and `input` use Dracula. The app previews one configured card of each type.
 
+## Deploy to GitHub Pages
+
+The workflow in `.github/workflows/deploy.yml` builds and deploys the app whenever
+changes are pushed to `main`. To enable it, set the repository's Pages source to
+**GitHub Actions** under **Settings → Pages**. The Vite base path is configured
+for the `TangerineCat/divspan` project site.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:
