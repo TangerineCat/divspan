@@ -18,9 +18,15 @@ const cards: CardConfig[] = [
 
 function App() {
   const [lightMode, setLightMode] = useState(false)
+  const [showCardCopies, setShowCardCopies] = useState(false)
   const [isExporting, setIsExporting] = useState(false)
   const [exportError, setExportError] = useState<string | null>(null)
   const galleryRef = useRef<HTMLDivElement>(null)
+  const displayedCards = showCardCopies
+    ? cards.flatMap((config) =>
+        Array.from({ length: config.count ?? 1 }, () => config),
+      )
+    : cards
 
   async function exportCards() {
     setIsExporting(true)
@@ -35,7 +41,7 @@ function App() {
       const cardElements = Array.from(
         gallery.querySelectorAll<HTMLElement>(':scope > .card'),
       )
-      if (cardElements.length !== cards.length) {
+      if (cardElements.length !== displayedCards.length) {
         throw new Error('Could not find every card in the gallery.')
       }
 
@@ -46,7 +52,7 @@ function App() {
           throw new Error(`Could not render card ${index + 1} as an image.`)
         }
 
-        const config = cards[index]
+        const config = displayedCards[index]
         const cardName = `${config.type}-${config.name}`.replace(
           /[^\w-]+/g,
           '-',
@@ -76,7 +82,7 @@ function App() {
   return (
     <main className={`app${lightMode ? ' light-mode' : ''}`}>
       <header className="app-header">
-        <h1>Theme cards</h1>
+        <h1>DivSpan cards</h1>
         <button
           aria-pressed={lightMode}
           className="theme-toggle"
@@ -84,6 +90,14 @@ function App() {
           type="button"
         >
           {lightMode ? 'Use dark mode' : 'Use light mode'}
+        </button>
+        <button
+          aria-pressed={showCardCopies}
+          className="copy-count-toggle"
+          onClick={() => setShowCardCopies((current) => !current)}
+          type="button"
+        >
+          Show card copies
         </button>
         <button
           className="export-cards-button"
@@ -104,7 +118,7 @@ function App() {
         aria-label="Theme card gallery"
         ref={galleryRef}
       >
-        {cards.map((config, index) => (
+        {displayedCards.map((config, index) => (
           <Card
             config={config}
             key={`${config.type}-${config.name}-${index}`}

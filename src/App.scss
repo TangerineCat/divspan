@@ -23,6 +23,7 @@
 }
 
 .theme-toggle,
+.copy-count-toggle,
 .export-cards-button {
   background: #282c34;
   border: 1px solid #5c6370;
@@ -50,6 +51,7 @@
 
 .app.light-mode {
   .theme-toggle,
+  .copy-count-toggle,
   .export-cards-button {
     background: #fff;
     color: #282c34;
@@ -80,6 +82,7 @@
   }
 
   .theme-toggle,
+  .copy-count-toggle,
   .export-cards-button {
     display: none;
   }

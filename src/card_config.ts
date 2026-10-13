@@ -29,4 +29,6 @@ export interface CardConfig {
     flavorText?: string;
     useClosingTag?: boolean;
     visual?: ReactNode;
+    // Number of times the card should be displayed
+    count?: number;
 }

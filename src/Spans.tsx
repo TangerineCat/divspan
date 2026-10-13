@@ -27,6 +27,7 @@ export const spans: CardConfig[] = [
     flavorText: 'Be brave. Be BOLD!',
     useClosingTag: true,
     visual: <strong>YOLO!!!</strong>,
+    count: 4,
   },
   {
     type: CardType.SPAN,
@@ -43,6 +44,7 @@ export const spans: CardConfig[] = [
     ],
     flavorText: 'Once you go italics, you never go back.',
     useClosingTag: true,
+    count: 4,
   },
   {
     type: CardType.SPAN,
@@ -50,18 +52,18 @@ export const spans: CardConfig[] = [
     description: [
       'After adding this card to a ',
       { text: 'div', type: DescriptionType.TAG },
-      ', you may remove ',
+      ', you may play ',
       1,
-      { text: ' span', type: DescriptionType.TAG },
-      ' from ',
-      1,
-      ' of your open ',
-      { text: 'divs', type: DescriptionType.TAG },
-      '.',
+      ' closing ',
+      { text: 'div', type: DescriptionType.TAG },
+      '. This doesn\'t count towards your ',
+      { text: 'div', type: DescriptionType.TAG },
+      ' limit per turn.'
     ],
     flavorText: 'Only hackermans use this tag!',
     useClosingTag: true,
     visual: <code>console.log("Hello, World!");</code>,
+    count: 4,
   },
   {
     type: CardType.SPAN,
@@ -77,6 +79,7 @@ export const spans: CardConfig[] = [
     flavorText: 'Well that\'s a risky click...',
     useClosingTag: true,
     visual: <a href="https://www.divspan.com">Click me!</a>,
+    count: 4,
   },
   {
     type: CardType.SPAN,
@@ -85,6 +88,7 @@ export const spans: CardConfig[] = [
     flavorText: 'The internet was made to post cat photos after all.',
     useClosingTag: false,
     visual: <img src={`${import.meta.env.BASE_URL}Youtiao.png`} alt="Youtiao" />,
+    count: 4,
   },
   {
     type: CardType.SPAN,
@@ -93,6 +97,7 @@ export const spans: CardConfig[] = [
     description: [],
     flavorText: 'The internet was made to post cat photos after all.',
     useClosingTag: false,
+    count: 4,
   },
   {
     type: CardType.SPAN,
@@ -101,6 +106,7 @@ export const spans: CardConfig[] = [
     description: [],
     flavorText: 'Bop it!',
     useClosingTag: true,
+    count: 4,
   },
   {
     type: CardType.SPAN,
@@ -109,6 +115,7 @@ export const spans: CardConfig[] = [
     description: [],
     flavorText: 'Not medicine!',
     useClosingTag: true,
+    count: 4,
   },
   {
     type: CardType.SPAN,
@@ -119,6 +126,7 @@ export const spans: CardConfig[] = [
       ' the next player skips their turn.'],
     flavorText: 'You\'re out of line!',
     useClosingTag: false,
+    count: 2,
   },
   {
     type: CardType.SPAN,
@@ -131,6 +139,7 @@ export const spans: CardConfig[] = [
     ],
     flavorText: 'Weeeeeeeeeeeeeeeee!',
     useClosingTag: true,
+    count: 2,
   },
   {
     type: CardType.SPAN,
@@ -139,6 +148,7 @@ export const spans: CardConfig[] = [
     description: [],
     flavorText: 'Never gonna give you up. Never gonna let you down.',
     useClosingTag: true,
+    count: 2,
   },
   {
     type: CardType.SPAN,
@@ -146,12 +156,13 @@ export const spans: CardConfig[] = [
     visual: <MiniIframeVisual />,
     description: [
       'A div that contains an ',
-      {text: 'iframe', type: DescriptionType.TAG},
+      { text: 'iframe', type: DescriptionType.TAG },
       ' cannot be affected by any ',
-      {text: 'scripts', type: DescriptionType.SCRIPT},
+      { text: 'scripts', type: DescriptionType.SCRIPT },
       '.',
     ],
-    flavorText: 'Put some website in your website.'
+    flavorText: 'Put some website in your website.',
+    count: 2,
   },
 ]
 
@@ -164,6 +175,7 @@ export const inputs: CardConfig[] = [
     flavorText: 'Must contain at least 8 characters, '
       + 'an element on the periodic table, '
       + 'and yesterday\'s Wordle answer.',
+    count: 4,
   },
   {
     type: CardType.INPUT,
@@ -172,6 +184,7 @@ export const inputs: CardConfig[] = [
     description: [],
     flavorText:
       'Yes, you can click all of them.',
+    count: 2,
   },
   {
     type: CardType.INPUT,
@@ -179,5 +192,6 @@ export const inputs: CardConfig[] = [
     visual: <input type="radio" />,
     description: [],
     flavorText: 'There can only be one!',
+    count: 2,
   },
 ]
