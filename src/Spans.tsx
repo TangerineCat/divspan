@@ -104,6 +104,14 @@ export const spans: CardConfig[] = [
   },
   {
     type: CardType.SPAN,
+    name: 'button',
+    visual: <button className="button-pill" type="button">Click me!</button>,
+    description: [],
+    flavorText: 'Not medicine!',
+    useClosingTag: true,
+  },
+  {
+    type: CardType.SPAN,
     name: 'br',
     visual: <LinebreakVisual />,
     description: ['When you add this card to a ',

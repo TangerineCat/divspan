@@ -30,7 +30,7 @@ export const divs: CardConfig[] = [
     visual: <CardVisual />,
     description: [
       'This card scores ',
-      3,
+      5,
       ' points if it contains ',
       1,
       ' ',
@@ -61,7 +61,7 @@ export const divs: CardConfig[] = [
     visual: <MiniFormVisual />,
     description: [
       'This card scores ',
-      1,
+      2,
       ' point for each ',
       { text: 'input', type: DescriptionType.TAG },
       ' element within it.',
@@ -83,7 +83,7 @@ export const divs: CardConfig[] = [
       { text: 'spans', type: DescriptionType.TAG },
       '.'
     ],
-    flavorText: 'Random bullshit go!',
+    flavorText: 'Bullet time!',
   },
   {
     type: CardType.DIV,
@@ -91,12 +91,14 @@ export const divs: CardConfig[] = [
     visual: <MiniOrderedListVisual />,
     description: [
       'This card scores ',
-      3,
+      7,
       ' point if it contains ',
-      4,
+      3,
       ' of the same type of ',
       { text: 'span', type: DescriptionType.TAG },
-      '.',
+      '. This scores ', 3, ' points if it contains any regular ',
+      { text: 'span', type: DescriptionType.TAG },
+
     ],
     flavorText: 'It\'s like a starship full of stormtroopers!',
   },
@@ -106,7 +108,7 @@ export const divs: CardConfig[] = [
     visual: <MiniDialogVisual />,
     description: [
       'This card scores ',
-      3,
+      5,
       ' points if it contains at least ',
       1,
       { text: ' button', type: DescriptionType.TAG },
@@ -123,11 +125,11 @@ export const divs: CardConfig[] = [
     description: [
       'This card scores ',
       3,
-      ' point if it contains at least ',
-      1,
-      { text: ' video', type: DescriptionType.TAG },
+      ' points for each ',
+      { text: 'video', type: DescriptionType.TAG },
+      ' it contains.'
     ],
-    flavorText: 'Watch your step!',
+    flavorText: 'Infinite scroll...',
   },
   {
     type: CardType.DIV,
@@ -140,7 +142,7 @@ export const divs: CardConfig[] = [
       { text: 'spans', type: DescriptionType.TAG },
       ' with the same tag.'
     ],
-    flavorText: 'Time to get organized!',
+    flavorText: 'Don\'t try to eat a meal on this.',
   },
   {
     type: CardType.DIV,
@@ -163,7 +165,7 @@ export const divs: CardConfig[] = [
     visual: <SearchbarVisual />,
     description: [
       'This card scores ',
-      4,
+      5,
       ' points if it contains ',
       { text: 'exactly ', type: DescriptionType.KEYWORD},
       1,
@@ -173,7 +175,7 @@ export const divs: CardConfig[] = [
       { text: ' button', type: DescriptionType.TAG },
       '.',
     ],
-    flavorText: 'LMGTFY'
+    flavorText: 'LMGTFY',
   },
   {
     type: CardType.DIV,
@@ -196,7 +198,7 @@ export const divs: CardConfig[] = [
     visual: <NavbarVisual />,
     description: [
       'This card scores ',
-      3,
+      5,
       ' points if it contains a ',
       { text: 'button', type: DescriptionType.TAG },
       ' and an ',
@@ -215,7 +217,7 @@ export const divs: CardConfig[] = [
     visual: <HeroVisual />,
     description: [
       'This card scores ',
-      3,
+      5,
       ' points if it contains ',
       1,
       ' ',
@@ -233,7 +235,7 @@ export const divs: CardConfig[] = [
     visual: <ArticleVisual />,
     description: [
       'This card scores ',
-      2,
+      4,
       ' points if it contains at least ',
       3,
       ' text ',
@@ -248,7 +250,7 @@ export const divs: CardConfig[] = [
     visual: <BlockquoteVisual />,
     description: [
       'This card scores ',
-      2,
+      4,
       ' points if it contains at least ',
       3,
       ' text ',
@@ -263,7 +265,7 @@ export const divs: CardConfig[] = [
     visual: <BadgeVisual />,
     description: [
       'This div scores ',
-      1,
+      2,
       ' points if it contains a text ',
       { text: 'span', type: DescriptionType.TAG},
       '.',
@@ -285,7 +287,7 @@ export const divs: CardConfig[] = [
     visual: <BannerAdVisual />,
     description: [
       'This card scores ',
-      3,
+      4,
       ' points if it contains an ',
       { text: 'img', type: DescriptionType.TAG },
       ' and a ',
@@ -300,7 +302,7 @@ export const divs: CardConfig[] = [
     visual: <AccordionVisual />,
     description: [
       'This card scores ',
-      2,
+      4,
       ' points for each pair of ',
       { text: 'div', type: DescriptionType.TAG },
       ' and text element.',
@@ -437,15 +439,15 @@ export const scripts: CardConfig[] = [
     name: 'commit',
     description: [
       'Add up to ',
-      3,
+      2,
       { text: ' spans', type: DescriptionType.TAG },
-      'to a ',
-      { text: ' div', type: DescriptionType.TAG },
-      ' from your hand, then draw the top card of the ',
-      { text: 'div', type: DescriptionType.TAG},
-      ' deck face down, and close that ',
-      { text: 'div', type: DescriptionType.TAG},
-      '.'
+      ' to a ',
+      { text: 'div', type: DescriptionType.TAG },
+      '. Then, you ',
+      { text: 'must', type: DescriptionType.KEYWORD},
+      ' close it with a ',
+      { text: 'div', type: DescriptionType.TAG },
+      ' from your hand.'
     ],
     flavorText: 'Commit to the bit!',
   },
@@ -456,11 +458,29 @@ export const scripts: CardConfig[] = [
       'Reveal cards from the ',
       { text: 'div', type: DescriptionType.TAG},
       ' deck equal to the ',
-      {text: 'number of players', type: DescriptionType.NUMBER},
-      '. In clockwise order, starting with yourself, each player must choose ',
+      {text: 'number of players + 1', type: DescriptionType.NUMBER},
+      '. In clockwise order, starting with yourself, each player ', 
+      { text: 'must', type: DescriptionType.KEYWORD},
+      ' choose ',
       1,
       ' of the remaining cards and add it to their hand',
     ],
     flavorText: 'You get a card! You get a card!',
   },
+  {
+    type: CardType.SCRIPT,
+    name: 'cutPaste',
+    description: [
+      'Take a ',
+      { text: 'span', type: DescriptionType.TAG},
+      ' from ',
+      { text: 'ANYONE\'S', type: DescriptionType.KEYWORD},
+      ' open ',
+      { text: 'div', type: DescriptionType.TAG},
+      ' and place into one of your open ',
+      { text: 'div', type: DescriptionType.TAG},
+      '.',
+    ],
+    flavorText: 'YOINK!',
+  }
 ];
