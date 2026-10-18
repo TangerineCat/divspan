@@ -3,7 +3,8 @@
 import { useRef, useState } from 'react'
 import { toBlob } from 'html-to-image'
 import JSZip from 'jszip'
-import Card from './Card'
+import Card, { DivCover, SpanCover } from './Card'
+import { CardType } from './card_config'
 import type { CardConfig } from './card_config'
 import './App.scss'
 import { divs, scripts } from './Divs'
@@ -14,6 +15,16 @@ const cards: CardConfig[] = [
   ...scripts,
   ...spans,
   ...inputs,
+  {
+    type: CardType.DIV_COVER,
+    name: "DivCover",
+    description: [],
+  },
+    {
+    type: CardType.SPAN_COVER,
+    name: "SpanCover",
+    description: [],
+  }
 ];
 
 function App() {

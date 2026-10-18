@@ -101,6 +101,85 @@ export function SpinnerVisual() {
   return <div aria-hidden="true" className="miniSpinner" />
 }
 
+export function MiniGameVisual() {
+  return (
+    <div aria-hidden="true" className="miniGame">
+      <div className="miniGame-dpad">
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="miniGame-buttons">
+        <span />
+        <span />
+      </div>
+    </div>
+  )
+}
+
+type ButtonVisualVariant =
+  | 'primary'
+  | 'base'
+  | 'fab'
+  | 'toggle'
+  | 'hamburger'
+  | 'ghost'
+  | 'icon'
+
+export function MiniButtonVisual({ variant }: { variant: ButtonVisualVariant }) {
+  const className = `miniButton miniButton-${variant}`
+
+  switch (variant) {
+    case 'fab':
+      return (
+        <div aria-hidden="true" className={className}>
+          <span className="miniButton-plus" />
+        </div>
+      )
+    case 'toggle':
+      return (
+        <div aria-hidden="true" className={className}>
+          <span>ON</span>
+          <span className="miniButton-toggle-knob" />
+        </div>
+      )
+    case 'hamburger':
+      return (
+        <div aria-hidden="true" className={className}>
+          <span />
+          <span />
+          <span />
+        </div>
+      )
+    case 'icon':
+      return (
+        <div aria-hidden="true" className={className}>
+          <span className="miniButton-search-icon" />
+        </div>
+      )
+    case 'primary':
+      return (
+        <div aria-hidden="true" className={className}>
+          Get started
+        </div>
+      )
+    case 'base':
+      return (
+        <button aria-hidden="true">
+          Cancel
+        </button>
+      )
+    case 'ghost':
+      return (
+        <div aria-hidden="true" className={className}>
+          Learn more <span aria-hidden="true">→</span>
+        </div>
+      )
+  }
+}
+
 export function HeroVisual() {
   return (
     <div aria-hidden="true" className="miniHero">
@@ -159,6 +238,21 @@ export function MiniFormVisual() {
         <span className="miniForm-line" />
       </label>
     </form>
+  )
+}
+
+export function LoginVisual() {
+  return (
+    <div aria-hidden="true" className="miniLogin">
+      <label>
+        <span>Username</span>
+        <span className="miniLogin-input" />
+      </label>
+      <label>
+        <span>Password</span>
+        <span className="miniLogin-input" />
+      </label>
+    </div>
   )
 }
 

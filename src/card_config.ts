@@ -5,6 +5,8 @@ export enum CardType {
     SPAN = "span",
     INPUT = "input",
     SCRIPT = "script",
+    DIV_COVER = "divCover",
+    SPAN_COVER = "spanCover",
 }
 
 export enum DescriptionType {
@@ -31,4 +33,8 @@ export interface CardConfig {
     visual?: ReactNode;
     // Number of times the card should be displayed
     count?: number;
+    // The number of cards that are the same tag. Overrides count if set.
+    countDisplay?: number;
+    // Whether or not a span is a text span.
+    text?: boolean;
 }

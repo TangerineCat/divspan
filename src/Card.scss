@@ -21,6 +21,7 @@
   font-family: Courier, monospace;
   height: 3.5in;
   padding: 0.12in;
+  position: relative;
   user-select: none;
   width: 2.5in;
 }
@@ -130,6 +131,9 @@
 
 .card-suit {
   font-size: 14pt;
+  .card-tag,.card-script-tag {
+    font-weight: bold;
+  }
 }
 
 .card-title {
@@ -138,6 +142,7 @@
   flex-direction: row;
   font-size: 16pt;
   justify-content: center;
+  font-weight: bold;
 }
 
 .card-center {
@@ -253,4 +258,27 @@
       padding-left: 0.5rem;
     }
   }
+}
+
+.card-count-dots {
+  bottom: 0.12in;
+  color: var(--punct);
+  display: flex;
+  font-size: 14pt;
+  gap: 0.05rem;
+  line-height: 10pt;
+  position: absolute;
+  right: 0.12in;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.text-indicator {
+  font-family: Montserrat;
+  font-weight: bold;
+  margin-right: 4px;
 }

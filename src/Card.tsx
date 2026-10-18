@@ -12,6 +12,8 @@ const cardComponents: Record<CardType, ComponentType<CardProps>> = {
   [CardType.SPAN]: SpanCard,
   [CardType.INPUT]: InputCard,
   [CardType.SCRIPT]: ScriptCard,
+  [CardType.DIV_COVER]: DivCover,
+  [CardType.SPAN_COVER]: SpanCover,
 }
 
 function Card({ config }: CardProps) {
@@ -67,6 +69,27 @@ function Description({ parts }: { parts: DescriptionContent[] }) {
   })
 }
 
+function CardFooter({ config }: CardProps) {
+  const count = config.countDisplay ?? config.count ?? 0
+  const dotCount = Number.isFinite(count) ? Math.max(0, Math.floor(count)) : 0
+
+  if (dotCount === 0) {
+    return null
+  }
+
+  return (
+    <div
+      aria-label={`${dotCount} card copies`}
+      className="card-count-dots"
+      role="img"
+    >
+      {Array.from({ length: dotCount }, (_, index) => (
+        <span aria-hidden="true" key={index}>·</span>
+      ))}
+    </div>
+  )
+}
+
 function DivCard({ config }: CardProps) {
   return (
     <article aria-label={`${config.name} div card`} className="card night-owl">
@@ -94,6 +117,7 @@ function DivCard({ config }: CardProps) {
       <div className="card-suit">
         <span className="card-tag-punctuation">&gt;</span>
       </div>
+      <CardFooter config={config} />
       {config.flavorText && (
         <div className="card-comment">
           <span>&lt;!--</span>
@@ -108,10 +132,13 @@ function DivCard({ config }: CardProps) {
 function SpanCard({ config }: CardProps) {
   return (
     <article aria-label={`${config.name} span card`} className="card dracula">
-      <div className="card-suit">
-        <span className="card-tag-punctuation">&lt;</span>
-        <span className="card-tag">{config.name}</span>
-        {config.useClosingTag && (<span className="card-tag-punctuation">&gt;</span>)}
+      <div className="card-header">
+        <div className="card-suit">
+          <span className="card-tag-punctuation">&lt;</span>
+          <span className="card-tag">{config.name}</span>
+          {config.useClosingTag && (<span className="card-tag-punctuation">&gt;</span>)}
+        </div>
+        {config.text && (<div className="text-indicator">T</div>)}
       </div>
       <div className="card-center">
         <div>
@@ -135,6 +162,7 @@ function SpanCard({ config }: CardProps) {
           <span className="card-tag-punctuation">/&gt;</span>
         )}
       </div>
+      <CardFooter config={config} />
       {config.flavorText && (
         <div className="card-comment">
           <span>&lt;!--</span>
@@ -173,6 +201,7 @@ function InputCard({ config }: CardProps) {
       <div className="card-suit">
         <span className="card-tag-punctuation">/&gt;</span>
       </div>
+      <CardFooter config={config} />
       {config.flavorText && (
         <div className="card-comment">
           <span>&lt;!--</span>
@@ -209,6 +238,7 @@ function ScriptCard({ config }: CardProps) {
         <span className="card-script-tag">script</span>
         <span className="card-tag-punctuation">&gt;</span>
       </div>
+      <CardFooter config={config} />
       {config.flavorText && (
         <div className="card-comment">
           <span>&lt;!--</span>
@@ -219,5 +249,35 @@ function ScriptCard({ config }: CardProps) {
     </article>
   )
 }
+
+export function DivCover() {
+  return (
+    <article className="card night-owl">
+      <div className="card-center">
+        <h1>
+          <span className="card-tag-punctuation">&lt;/</span>
+          <span className="card-tag">div</span>
+          <span className="card-tag-punctuation">&gt;</span>
+        </h1>
+      </div>
+    </article>
+  )
+}
+
+
+export function SpanCover() {
+  return (
+    <article className="card dracula">
+      <div className="card-center">
+        <h1>
+          <span className="card-tag-punctuation">&lt;</span>
+          <span className="card-tag">span</span>
+          <span className="card-tag-punctuation">&nbsp;/&gt;</span>
+        </h1>
+      </div>
+    </article>
+  )
+}
+
 
 export default Card
