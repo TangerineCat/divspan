@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { toBlob } from 'html-to-image'
 import JSZip from 'jszip'
+import { setPngPhysicalSize } from './png_metadata'
 import Card, { DivCover, SpanCover } from './Card'
 import { CardType } from './card_config'
 import type { CardConfig } from './card_config'
@@ -58,10 +59,11 @@ function App() {
 
       const zip = new JSZip()
       for (const [index, cardElement] of cardElements.entries()) {
-        const image = await toBlob(cardElement, { pixelRatio: 2 })
-        if (!image) {
+        const renderedImage = await toBlob(cardElement, { pixelRatio: 4 })
+        if (!renderedImage) {
           throw new Error(`Could not render card ${index + 1} as an image.`)
         }
+        const image = await setPngPhysicalSize(renderedImage, 2.5, 3.5)
 
         const config = displayedCards[index]
         const cardName = `${config.type}-${config.name}`.replace(
